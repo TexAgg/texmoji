@@ -6,7 +6,19 @@
 \RequirePackage{graphicx}
 \RequirePackage{scalerel}
 
-\newcommand{\texmoji}[1]{\scalerel*{\includegraphics{img/#1.png}}{b}}
-{#\newcommand{\texmoji}[1]{\scalerel*{\includegraphics{img/#1.png}}{g}}#}
+%\newcommand{\texmoji}[1]{\scalerel*{\includegraphics{img/#1.png}}{b}}
+
+\newcommand\texmoji[1]{%
+  \ifcsname foo\detokenize{#1}\endcsname
+      \csname foo\detokenize{#1}\expandafter\endcsname
+   \else
+     \PackageError{mypackage}{go away: \detokenize{#1} not defined}{really}%
+   \fi}
+
+
+\#{ http://tex.stackexchange.com/questions/336480/custom-command-with-predefined-argument?noredirect=1#comment824888_336480 }
+\BLOCK{for key, value in data.iteritems()}
+\expandafter\newcommand\csname foo\VAR{key}\endcsname{{\scalerel*{\includegraphics{\VAR{value['img']}}}{b}}}
+\BLOCK{endfor}
 
 \endinput

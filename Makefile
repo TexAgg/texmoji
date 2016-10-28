@@ -1,9 +1,15 @@
 TEXFILE=texmoji
 
 .PHONY: all
-all: $(TEXFILE).pdf
+all: $(TEXFILE).pdf data/emojis.json
 
-$(TEXFILE).pdf: $(TEXFILE).tex
+data/emojis.json: 
+	python populate.py
+
+$(TEXFILE).tex: templates/$(TEXFILE).template.tex templates/$(TEXFILE).template.sty
+	python main.py
+
+$(TEXFILE).pdf: $(TEXFILE).tex $(TEXFILE).sty
 	pdflatex $(TEXFILE).tex
 	pdflatex $(TEXFILE).tex
 
