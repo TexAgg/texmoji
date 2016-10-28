@@ -1,0 +1,11 @@
+% Source code texmoji template
+
+\ProvidesPackage{texmoji}
+
+\RequirePackage{graphicx}
+\RequirePackage{scalerel}
+
+\newcommand{\texmoji}[1]{\scalerel*{\includegraphics{img/#1.png}}{b}}
+{#\newcommand{\texmoji}[1]{\scalerel*{\includegraphics{img/#1.png}}{g}}#}
+
+\endinput
