@@ -5,6 +5,12 @@ import time
 from datetime import date
 from jinja2 import Template
 
+# Returns the current date.
+# https://docs.python.org/2/library/datetime.html
+def today():
+    d = date.fromtimestamp(time.time())
+    return d.isoformat()
+
 # https://github.com/TexAgg/Resume/blob/master/render.py#L31
 latex_jinja_env = jinja2.Environment(
     block_start_string = '\BLOCK{',
@@ -21,11 +27,11 @@ latex_jinja_env = jinja2.Environment(
 )
 
 sty_template = latex_jinja_env.get_template('templates/texmoji.template.sty')
-sty_str = sty_template.render()
+sty_str = sty_template.render(today = today)
 with open("texmoji.sty", "w+") as f:
     f.write(sty_str)
 
 tex_template = latex_jinja_env.get_template('templates/texmoji.template.tex')
-tex_string = tex_template.render()
+tex_string = tex_template.render(today = today)
 with open("texmoji.tex", "w+") as f:
     f.write(tex_string)

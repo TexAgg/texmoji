@@ -24,7 +24,7 @@ class data_getter:
 				img.save_raw_img(raw_img[22:], "img/" + cols[0].string + ".png")
 
 				# add the emoji to the dict.
-				self.emojis[cols[0].string] = {
+				self.emojis[cols[15].string] = {
 					'id': cols[0].string,
 					'name': cols[15].string,
 					'unicode': cols[1].string,
