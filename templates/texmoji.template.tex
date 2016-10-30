@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{texmoji}
 \usepackage{verbatim}
+\usepackage{multicol}
+\usepackage{hyperref}
 
 \title{The \texttt{texmoji} Package}
 \author{Matt Gaikema}
@@ -19,11 +21,15 @@ Or your paper needed more excitement?
 Enter TeXMoji, emojis for LaTeX.
 
 \section{Reference}
+To use a specific emoji, find its number on the \href{http://unicode.org/emoji/charts/full-emoji-list.html}{full emoji database}
+and use the command \verb|\texmoji{<n>}|, where \verb|n| is its number.
 
+\begin{multicols}{2}
 \begin{itemize}
 \BLOCK{for key, value in data.iteritems()}
 	\item \verb|\texmoji{\VAR{key}}|: \texmoji{\VAR{key}}
 \BLOCK{endfor}
 \end{itemize}
+\end{multicols}
 
 \end{document}
