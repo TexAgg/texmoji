@@ -26,7 +26,7 @@ class data_getter:
 				# add the emoji to the dict.
 				self.emojis[cols[0].string] = {
 					'id': cols[0].string,
-					'name': cols[15].string,
+					'name': cols[16].string,
 					'unicode': cols[1].string,
 					'img': "img/" + cols[0].string + ".png"
 				}

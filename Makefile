@@ -3,10 +3,10 @@ TEXFILE=texmoji
 .PHONY: all
 all: $(TEXFILE).pdf data/emojis.json
 
-data/emojis.json: 
+data/emojis.json: populate.py modules/*
 	python populate.py
 
-$(TEXFILE).tex: templates/$(TEXFILE).template.tex templates/$(TEXFILE).template.sty
+$(TEXFILE).tex: templates/$(TEXFILE).template.tex templates/$(TEXFILE).template.sty data/emojis.json
 	python main.py
 
 $(TEXFILE).pdf: $(TEXFILE).tex $(TEXFILE).sty
