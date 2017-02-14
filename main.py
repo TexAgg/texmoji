@@ -4,6 +4,7 @@ import json
 import time
 from datetime import date
 from jinja2 import Template
+from collections import OrderedDict
 
 # Returns the current date.
 # https://docs.python.org/2/library/datetime.html
@@ -26,8 +27,9 @@ latex_jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.abspath('.'))
 )
 
-with open('data/emojis.json') as data_file:    
-    data = json.load(data_file)
+with open('data/emojis.json') as data_file:
+    # http://stackoverflow.com/a/6921760/5415895
+    data = json.load(data_file, object_pairs_hook=OrderedDict)
 
 sty_template = latex_jinja_env.get_template('templates/texmoji.template.sty')
 sty_str = sty_template.render(

@@ -5,20 +5,27 @@
 \usepackage{texmoji}
 \usepackage{verbatim}
 \usepackage{multicol}
+\usepackage{listings}
 \usepackage{hyperref}
 
 \title{The \texttt{texmoji} Package}
-\author{Matt Gaikema}
+\author{Matt Gaikema \\ \href{mailto:mgaikema1@gmail.com}{mgaikema1@gmail.com} \\ \href{http://www.mattgaikema.com/}{www.mattgaikema.com}}
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
+\tableofcontents
+
 \section{Introduction}
 Ever thought your PhD thesis was lacking pizzaz?
 Or your paper needed more excitement?
 Enter TeXMoji, emojis for LaTeX.
+
+TeXMoji is generated using by scraping the \href{http://unicode.org/emoji/charts/full-emoji-list.html}{full emoji database} and saving the images, 
+and then generating the \texttt{sty} and \texttt{tex} files using templates.
+The source code used for the scraping and generating can be found at \href{https://github.com/TexAgg/texmoji}{github.com/TexAgg/texmoji}.
 
 \section{Reference}
 To use a specific emoji, find its number on the \href{http://unicode.org/emoji/charts/full-emoji-list.html}{full emoji database}
@@ -31,5 +38,10 @@ and use the command \verb|\texmoji{<n>}|, where \verb|n| is its number.
 \BLOCK{endfor}
 \end{itemize}
 \end{multicols}
+
+\section{License}
+\texttt{texmoji} is licensed under the terms of the GNU General Public License.
+
+\lstinputlisting[breaklines=true]{LICENSE}
 
 \end{document}
